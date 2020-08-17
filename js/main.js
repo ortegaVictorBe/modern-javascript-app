@@ -1,3 +1,7 @@
+//  -------------------------------------------------------
+//  Variables - Global use
+//  -------------------------------------------------------
+
 const search = document.getElementById("searchCity");
 const matchList = document.getElementById("match-list");
 const setCards = document.querySelector("#match-list");
@@ -16,7 +20,6 @@ var cities = {};
 
 //init - Function: intialice the controls
 const init = () => {
-
     data.style.visibility = "hidden"
     loading.style.visibility = "hidden"
 }
