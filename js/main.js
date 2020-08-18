@@ -29,9 +29,9 @@ const start = () => {
     //Checking if we have the locla city in Local storage
     let localCity = localStorage.getItem("name_localCity")
     if (localCity.length > 0) {
-        window.open("info.html", "_self");
+        openWindowInfo();
     } else {
-        //hidding the info
+        //Hidding the Info
         data.style.visibility = "hidden"
         loading.style.visibility = "visible"
         loadCities();
@@ -39,7 +39,7 @@ const start = () => {
 
 }
 
-//load cities
+//loadCities - fucntion(Async) : open the file with the cities
 const loadCities = async () => {
     const res = await fetch("city.list.min.json");
     cities = await res.json();
@@ -48,7 +48,7 @@ const loadCities = async () => {
     loading.style.display = "none"
 }
 
-//Search cities
+//searchCities - function: search cities in the list
 const searchCities = searchText => {
     //Get matches to current input
     matches = cities.filter(city => {
@@ -60,13 +60,13 @@ const searchCities = searchText => {
         matches = [];
         matchList.innerHTML = "";
     }
-    // console.log(matches)
     outputHtml(matches);
 }
 
 //outputHtml - function: Show the results in html
 const outputHtml = matches => {
     if (matches.length > 0) {
+
         const html = matches.map(match => `<div class="card card-body mb-1" id="d${match.id}">
         <h4 id="h${match.id}">${match.name} (${match.country}) <span id="s${match.id}" class="text-primary">${match.state}</span></h4>
         <small id="m${match.id}" >Lat: ${match.coord.lat} / Long: ${match.coord.lon}</small></div>`).join('');
@@ -81,6 +81,10 @@ const setLocalStorage = () => {
     localStorage.setItem("name_localCity", search.getAttribute("name_city"))
     localStorage.setItem("lat_localCity", search.getAttribute("lat_city"))
     localStorage.setItem("lon_localCity", search.getAttribute("lon_city"))
+}
+
+const openWindowInfo = () => {
+    window.open("info.html", "_self");
 }
 
 //  -------------------------------------------------------
@@ -112,7 +116,7 @@ setCards.addEventListener('click', e => {
 
 //click - event - open the window with the info of city selected
 btnSetCity.addEventListener('click', () => {
-    window.open("info.html", "_self");
+    openWindowInfo();
 })
 
 //  -------------------------------------------------------

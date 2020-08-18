@@ -1,40 +1,53 @@
-//calling the API
-let cityName = localStorage.getItem("name_localCity");
-let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=e4dfa41e22f93aa72d2e80838a3bb930`
+//  -------------------------------------------------------
+//  Variables - Global use
+//  -------------------------------------------------------
 
+var cityName = localStorage.getItem("name_localCity");
+const URL_DAY_WEATHER = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=e4dfa41e22f93aa72d2e80838a3bb930`
 
-var cityWeatherInfo = {};
-var cityWeatherInfoDaily = [];
+var cityWeatherInfo;
+var cityWeatherInfoDaily;
 var dateNow = new Date();
 
 const btnChangCity = document.getElementById("btnChangeCity")
 
+//  -------------------------------------------------------
+//  Functions
+//  -------------------------------------------------------
 
-const getWeatherData = async () => {
+//getWeatherData - 
+const getWeatherDataPerDay = async () => {
 
-    const res = await fetch(url);
+    const res = await fetch(URL_DAY_WEATHER);
     cityWeatherInfo = await res.json();
-
-    // let url2=`http://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&
-    // exclude=hourly,daily&appid={YOUR API KEY}`
-    let url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityWeatherInfo.coord.lat}&lon=${cityWeatherInfo.coord.lon}&units=metric&
-    exclude=hourly,minutely&appid=e4dfa41e22f93aa72d2e80838a3bb930`
-
-    const resDaily = await fetch(url2);
-    cityWeatherInfoDaily = await resDaily.json();
-
-    console.log(cityWeatherInfo);
-    console.log(cityWeatherInfoDaily);
-    paintData();
+    console.log(cityWeatherInfo)
 
 }
 
+const getWeatherDataDaily = async () => {
+    const URL_DAILY_WEATHER = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityWeatherInfo.coord.lat}&lon=${cityWeatherInfo.coord.lon}&units=metric&
+    exclude=hourly,minutely&appid=e4dfa41e22f93aa72d2e80838a3bb930`;
+
+    const resDaily = await fetch(URL_DAILY_WEATHER);
+    cityWeatherInfoDaily = await resDaily.json();
+    console.log(cityWeatherInfo)
+}
+
+const getWeather = () => {
+    getWeatherDataPerDay();
+    // getWeatherDataDaily();
+    // console.log(cityWeatherInfo);
+    // console.log(cityWeatherInfoDaily);
+
+    // paintData();
+}
+
+//paintData - function : Write info in the browser
 const paintData = () => {
     //Genral Section
     paintGeneral();
     //Daily
     paintDaily();
-
 }
 
 const paintGeneral = () => {
@@ -110,10 +123,15 @@ const paintDaily = () => {
 }
 
 const changeCity = () => {
-    
-}
 
+}
+//  -------------------------------------------------------
+//  Events.
+//  -------------------------------------------------------
 
 btnChangCity.addEventListener('click', changeCity);
 
-getWeatherData();
+//  -------------------------------------------------------
+//  Execution Secuence.
+//  -------------------------------------------------------
+getWeather();
