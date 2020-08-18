@@ -19,13 +19,14 @@ var cities = {};
 //  -------------------------------------------------------
 
 //init - Function: intialice the controls
-const init = () => {
+export const init = () => {
     data.style.visibility = "hidden"
     loading.style.visibility = "hidden"
 }
 
 //start - Function: Checking if we had set LocalCity, 
-const start = () => {
+export const start = () => {
+
     //Checking if we have the locla city in Local storage
     let localCity = localStorage.getItem("name_localCity")
     if (localCity.length > 0) {
@@ -123,5 +124,5 @@ btnSetCity.addEventListener('click', () => {
 //  Execution Secuence.
 //  -------------------------------------------------------
 
-init();
-start();
+// init();
+// start();

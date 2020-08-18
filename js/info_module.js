@@ -26,7 +26,7 @@ const getWeatherDataPerDay = async () => {
     //Getting Weather Daily
     getWeatherDataDaily();
 
-    //gatting pictyre
+    //Getting pictyre
     getCityPicture()
 
 }
@@ -91,7 +91,7 @@ const paintWeatherDailyInfo = () => {
         // <img src="http://openweathermap.org/img/wn/02d@2x.png" class="max-width: 50%;" >
         // <img src="http://openweathermap.org/img/wn/${iconImg}@2x.png">
         if (index >= 1) {
-            detailTable.innerHTML += `<tr class="table-warning">                               
+            detailTable.innerHTML += `<tr class="table-info">                               
             <td>${nameDays[day.getDay()]}</td>
             <td>${element.temp.min}°c</td>
             <td>${element.temp.max}°c</td>
@@ -100,12 +100,6 @@ const paintWeatherDailyInfo = () => {
 
     });
 }
-
-// getWeather - function : Get the weather per day and daily
-const getWeather = () => {
-    getWeatherDataPerDay();
-}
-
 // setLocalStorage - function : Set the Values of Local Storage
 const setLocalStorage = (StorageValue) => {
     if (StorageValue == "") {
@@ -124,7 +118,7 @@ const showCityPicture = () => {
     console.log(urlImage);
 
     imageCityCard.innerHTML = `
-        <div class="card border-dark  bg-info mb-3" style="max-width: 20rem;">
+        <div class="card border-dark  bg-light mb-3" style="max-width: 20rem;">
       
       <div class="card-body">
         <h4 class="card-title">${cityName}</h4>
@@ -146,6 +140,12 @@ const changeCity = () => {
 const compareCities = () => {
 
 }
+
+// getWeather --MAIN-- function : Get the weather per day and daily
+const getWeather = () => {
+    getWeatherDataPerDay();
+}
+
 //  -------------------------------------------------------
 //  Events.
 //  -------------------------------------------------------
@@ -156,4 +156,6 @@ btnCompareCities.addEventListener('click', compareCities);
 //  -------------------------------------------------------
 //  Execution Secuence.
 //  -------------------------------------------------------
-getWeather();
+
+export default getWeather;
+// getWeather();
