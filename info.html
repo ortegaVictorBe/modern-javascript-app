@@ -13,8 +13,7 @@
     <title>Crazy Weather</title>
   </head>
   <body>
-    <div class="container m-5">
-        
+    <div class="container m-5">        
       <div id="general" class="row text-center"  >        
       <div class="col-xs jumbotron">        
         <h3 class="text-center mb-3">
@@ -26,13 +25,18 @@
           <div id="picture"></div>
           <div id="temp"></div>
         </div>
-        <div id="descInfo"></div>
+        <div id="descInfo" class="mb-5"></div>
         <!-- <div class="row"><div class="col-xs jumbotron"> -->
-        <div>
-                <button id="btnChangeCity" class="btn btn-primary mt-5 float-left"><i class="fas fa-city">Change city</i></button>
-                <button class="btn btn-primary mt-5 float-right" ><i class="fas fa-city">Compare cities</i></button>
+        <div id="buttonsChange" class="mt-5">
+                <button id="btnChangeCity" class="btn btn-primary m-1"><i class="fas fa-city">Change city</i></button>
+                <button id="btnCompareCities" class="btn btn-primary m-1 d-none" ><i class="fas fa-city">Compare cities</i></button>
+        </div>        
+      </div>
+      <div class="row" id="cityPicture">
+        <div class="col-xs jumbotron">
+          <div id="cityImage">
+          </div>            
         </div>
-            <!-- </div></div> -->
       </div>
       <div class="row" id="data">
         <div class="col-xs jumbotron">
