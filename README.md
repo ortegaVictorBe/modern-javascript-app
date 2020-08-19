@@ -2,7 +2,7 @@
 
 ## Brief :clipboard:
 
-Previously i made a [Weather app (Under construction)](https://github.com/ortegaVictorBe/weatherApp.git), connecting to API [OpenWeather](https://openweathermap.org/api) , for display the daily wather and 5 days forecast, and i used a live city from a json file that contains a cities catalog :smoking: .
+Previously i made a [Weather app (Under construction)](https://github.com/ortegaVictorBe/weatherApp.git), connecting to API [OpenWeather](https://openweathermap.org/api) , for display the daily wather and 5 days forecast, and i used a live search city from a json file that contains a cities catalog :smoking: .
 
 ---
 
