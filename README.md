@@ -40,7 +40,7 @@ Building with
 
 ## Autor and Rights :bulb:
 
-Developed by [Victor Ortega](https://github.com/ortegaVictorBe) for BeCode(https://becode.org/)
+Developed by [Victor Ortega](https://github.com/ortegaVictorBe) for [BeCode](https://becode.org/)
 
 ---
 
